@@ -2,7 +2,13 @@
 
 @import "global/global.scss";
 @import "global/fonts.scss";
+@import "global/variables.scss";
 
 // Blocks
 
 @import "blocks/visually-hidden.scss";
+@import "blocks/page.scss";
+@import "blocks/main-header.scss";
+@import "blocks/logo.scss";
+@import "blocks/nav.scss";
+@import "blocks/button.scss";
