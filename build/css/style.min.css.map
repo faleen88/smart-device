@@ -1,0 +1,1 @@
+{"version":3,"sources":["global/global.scss"],"names":[],"mappings":"AAAA,C,CACE,oB,CAGF,G,CACE,W,CACA,a","file":"style.min.css","sourcesContent":["a {\n  text-decoration: none;\n}\n\nimg {\n  height: auto;\n  display: block;\n}\n"]}
