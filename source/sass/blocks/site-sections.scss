@@ -1,0 +1,15 @@
+.site-sections {
+  margin-right: 106px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 66px;
+
+  @media (max-width: $min-desktop-width) {
+    grid-column-gap: 7%;
+    margin-right: 7%;
+  }
+}
+
+.site-sections h3 {
+  grid-column: 1 / 3;
+}

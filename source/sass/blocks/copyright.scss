@@ -1,0 +1,34 @@
+.copyright__container {
+  width: 1412px;
+  padding: 14px;
+  margin: 0 auto;
+
+  @media (max-width: $min-desktop-width) {
+    width: 96%;
+    padding: 14px 2%;
+  }
+}
+
+.copyright__container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 224px 375px 1fr 192px;
+
+  @media (max-width: $min-desktop-width) {
+    grid-template-columns: 20% 30% 1fr 192px;
+  }
+}
+
+.copyright__container li {
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.copyright__container li:not(:nth-child(4n)) {
+  margin-right: 20px;
+}

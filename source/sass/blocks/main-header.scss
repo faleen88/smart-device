@@ -22,6 +22,8 @@
 }
 
 .main-header__logo {
+  color: $white;
+
   @media (max-width: $tablet-width) {
     padding: 20px 25px 0;
   }
