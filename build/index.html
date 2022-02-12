@@ -78,21 +78,21 @@
         <p>1999-2018 SD Service Devices</p>
         <ul>
           <li>
-            <a class="social__link social__link--fb" href="#" aria-label="Фейсбук">
+            <a class="social__link" href="#" aria-label="Фейсбук">
               <svg width="27" height="27">
                 <use xlink:href="img/sprite_auto.svg#icon-fb"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a class="social__link social__link--ok" href="#" aria-label="Одноклассники">
+            <a class="social__link" href="#" aria-label="Одноклассники">
               <svg width="27" height="27">
                 <use xlink:href="img/sprite_auto.svg#icon-ok"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a class="social__link social__link--vk" href="#" aria-label="Вконтакте">
+            <a class="social__link" href="#" aria-label="Вконтакте">
               <svg width="27" height="27">
                 <use xlink:href="img/sprite_auto.svg#icon-vk"></use>
               </svg>
@@ -101,41 +101,49 @@
         </ul>
       </section>
 
-      <section class="main-footer__site-sections site-sections">
-        <h3>Разделы сайта</h3>
-        <ul>
-          <li>О компании</li>
-          <li>Продукты</li>
-          <li>Производство печатных плат</li>
-          <li>Монтаж печатных плат</li>
-        </ul>
-        <ul>
-          <li>Комплектующие</li>
-          <li>Доставка</li>
-          <li>Контакты</li>
-        </ul>
-      </section>
+      <div class="main-footer__accordeon accordeon accordeon--nojs">
+        <section class="accordeon__item accordeon__item--site-sections" id="site-sections">
+          <button class="accordeon__button"><h3 data-item="site-sections">Разделы сайта</h3></button>
+          <div class="accordeon__content">
+            <ul>
+              <li>О компании</li>
+              <li>Продукты</li>
+              <li>Производство печатных плат</li>
+              <li>Монтаж печатных плат</li>
+            </ul>
+            <ul>
+              <li>Комплектующие</li>
+              <li>Доставка</li>
+              <li>Контакты</li>
+            </ul>
+          </div>
+        </section>
 
-      <section class="main-footer__connection connection">
-        <h3>Наш офис</h3>
-        <ul>
-          <li>г. Мытищи, Олимпийский проспект, д.10</li>
-          <li>+7 (495) 589-40-50</li>
-          <li>+7 (925) 003-87-67</li>
-          <li>+7 (926) 926-080-79</li>
-        </ul>
-      </section>
+        <section class="accordeon__item accordeon__item--connection" id="connection">
+          <button class="accordeon__button"><h3 data-item="connection">Наш офис</h3></button>
+          <div class="accordeon__content">
+            <ul>
+              <li>г. Мытищи, Олимпийский проспект, д.10</li>
+              <li>+7 (495) 589-40-50</li>
+              <li>+7 (925) 003-87-67</li>
+              <li>+7 (926) 926-080-79</li>
+            </ul>
+          </div>
+        </section>
+      </div>
     </div>
 
     <div class="main-footer__copyright copyright">
       <div class="copyright__container">
-        <div class="copyright__rights">Все права защищены</div>
-        <div class="copyright__years">1999-2018 SD Service Devices</div>
-        <div class="copyright__confidentiality">Условия конфиденциальности</div>
-        <div class="copyright__developer">Developed by wow studio</div>
+        <div class="copyright__item copyright__item--rights">Все права защищены</div>
+        <div class="copyright__item copyright__item--years">1999-2018 SD Service Devices</div>
+        <div class="copyright__item copyright__item--confidentiality">Условия конфиденциальности</div>
+        <div class="copyright__item copyright__item--developer">Developed by wow studio</div>
       </div>
     </div>
   </footer>
+
+  <script src="js/main.js"></script>
 
 </body>
 </html>

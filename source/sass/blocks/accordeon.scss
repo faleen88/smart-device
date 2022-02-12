@@ -1,0 +1,146 @@
+.accordeon {
+  margin-top: -2px;
+
+  @media (max-width: $tablet-width) {
+    padding: 36px 24px;
+    margin-top: 0;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 0;
+  }
+}
+
+.accordeon__item {
+  &--site-sections {
+    margin-right: 106px;
+
+    @media (max-width: $min-desktop-width) {
+      margin-right: 7%;
+    }
+
+    @media (max-width: $tablet-width) {
+      margin-right: 0;
+    }
+
+    @media (max-width: $mobile-width) {
+      border-bottom: 1px solid rgba(98, 105, 98, 0.2);
+    }
+  }
+}
+
+.accordeon__item--site-sections .accordeon__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 66px;
+
+  @media (max-width: $tablet-width) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
+.accordeon__button {
+  padding: 0;
+  margin-bottom: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: text;
+  text-align: start;
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+}
+
+.accordeon__button h3 {
+  margin: 0;
+  font-family: $fontFamily;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $dark;
+
+  @media (max-width: $tablet-width) {
+    padding-left: 2px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 29px 15px 27px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 16px;
+      height: 16px;
+      background-image: url("../img/plus.svg");
+      top: 29px;
+      right: 17px;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }
+}
+
+.accordeon__content {
+  @media (max-width: $mobile-width) {
+    display: none;
+    padding: 5px 15px 25px;
+  }
+}
+
+.accordeon__content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordeon__content li {
+  font-size: 15px;
+  line-height: 25px;
+  opacity: 0.5;
+
+  @media (max-width: $mobile-width) {
+    padding-right: 10px;
+  }
+}
+
+.accordeon--nojs {
+  @media (max-width: $mobile-width) {
+    h3::after {
+      display: none;
+    }
+
+    .accordeon__content {
+      display: block;
+    }
+  }
+}
+
+.accordeon__item--active {
+  @media (max-width: $mobile-width) {
+    .accordeon__content {
+      display: block;
+    }
+
+    h3::after {
+      height: 1px;
+      background: url("../img/minus.svg");
+      top: 36px;
+    }
+  }
+}

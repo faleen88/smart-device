@@ -5,6 +5,12 @@
     justify-content: space-between;
     border-bottom: 1px solid rgba(98, 105, 98, 0.2);
   }
+
+  @media (max-width: $mobile-width) {
+    padding: 46px 42px 48px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .social__logo {
@@ -12,8 +18,39 @@
   color: #203c42;
 
   @media (max-width: $tablet-width) {
-    margin: 0;
+    margin-bottom: 0;
     margin-right: 101px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-right: 0;
+    margin-bottom: 26px;
+    padding-right: 14px;
+  }
+}
+
+.social__logo .logo__link {
+  @media (max-width: $mobile-width) {
+    width: 202px;
+  }
+}
+
+.social__logo img {
+  @media (max-width: $mobile-width) {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.social__logo b {
+  @media (max-width: $mobile-width) {
+    display: block;
+  }
+}
+
+.social__logo span {
+  @media (max-width: $mobile-width) {
+    display: block;
   }
 }
 
@@ -31,6 +68,12 @@
     margin-right: 73px;
     padding-top: 17px;
   }
+
+  @media (max-width: $mobile-width) {
+    margin-right: 0;
+    padding-top: 0;
+    margin-bottom: 31px;
+  }
 }
 
 .social ul {
@@ -43,6 +86,10 @@
   @media (max-width: $tablet-width) {
     padding-top: 11px;
   }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 0;
+  }
 }
 
 .social li {
@@ -53,4 +100,17 @@
   @media (max-width: $tablet-width) {
     margin-right: 0;
   }
+}
+
+.social__link svg {
+  fill: #cdcdcd;
+}
+
+.social__link:hover svg {
+  fill: $accent;
+}
+
+.social__link:active svg {
+  fill: $accent;
+  opacity: 0.7;
 }
