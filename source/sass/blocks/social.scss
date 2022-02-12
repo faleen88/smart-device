@@ -92,11 +92,11 @@
   }
 }
 
-.social li {
+.social__link svg {
   margin-right: 15px;
 }
 
-.social li:nth-child(3n) {
+.social__link--vk svg {
   @media (max-width: $tablet-width) {
     margin-right: 0;
   }
