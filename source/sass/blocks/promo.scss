@@ -1,6 +1,6 @@
 .promo__container {
   width: 1420px;
-  padding: 140px 11px 108px;
+  padding: 140px 11px 105px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 780px 1fr;
@@ -14,7 +14,6 @@
   }
 
   @media (max-width: $tablet-width) {
-    //width: 100%;
     padding: 41px 0 163px 87px;
     grid-template-columns: 430px 1fr;
   }

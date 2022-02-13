@@ -1,18 +1,5 @@
 .main-header {
-  //min-height: 878px;
   background: $dark url("../img/decor.svg") no-repeat center / cover;
-
-  @media (max-width: $tablet-width) {
-    //min-height: 686px;
-  }
-
-  @media (max-width: $mobile-width) {
-    //min-height: 647px;
-  }
-}
-
-.main-header__mask {
-  background: url("../img/mask-group.svg") no-repeat center;
 }
 
 .main-header__container {
