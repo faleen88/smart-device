@@ -2,12 +2,35 @@
   width: 1170px;
   padding: 112px 15px 55px;
   margin: 0 auto;
+
+  @media (max-width: $desktop-width-two) {
+    width: 96%;
+  }
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    padding: 54px 0 27px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 37px 0 30px;
+  }
 }
 
 .advantages__list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+
+  @media (max-width: $tablet-width) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: 1fr;
+    padding: 0 14px;
+    gap: 20px;
+  }
 }
 
 .advantages__item {
@@ -15,6 +38,15 @@
   padding: 40px 42px 40px;
   border: 1px solid #ebebeb;
   border-left: 3px solid $accent;
+
+  @media (max-width: $tablet-width) {
+    padding: 24px 19px 21px 25px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: auto;
+    padding: 24px 15px 20px 23px;
+  }
 
   &:hover {
     background-color: $accent;
@@ -35,10 +67,14 @@
 .advantages__item svg {
   margin-bottom: 13px;
   fill: $accent;
-}
 
-.advantages__item--confidentiality svg {
-  padding-top: 4px;
+  @media (max-width: $tablet-width) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 4px;
+  }
 }
 
 .advantages__item h3 {
@@ -49,10 +85,82 @@
   line-height: 34px;
   font-weight: 400;
   color: $accent;
+
+  @media (max-width: $tablet-width) {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: $mobile-width) {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
 }
 
 .advantages__item p {
   margin: 0;
   font-size: 16px;
   line-height: 22px;
+}
+
+.advantages__item--terms {
+  @media (max-width: $mobile-width) {
+    padding-right: 18px;
+    padding-bottom: 25px;
+  }
+}
+
+.advantages__item--suppliers {
+  @media (max-width: $mobile-width) {
+    padding-bottom: 28px;
+  }
+}
+
+.advantages__item--confidentiality {
+  @media (max-width: $tablet-width) {
+    min-height: 185px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: auto;
+    padding-bottom: 56px;
+  }
+
+  svg {
+    padding-top: 4px;
+
+    @media (max-width: $tablet-width) {
+      width: 30px;
+      height: 26px;
+      padding-top: 3px;
+      margin-bottom: 5px;
+    }
+  }
+
+  h3 {
+    @media (max-width: $tablet-width) {
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: $mobile-width) {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.advantages__item--cost {
+  @media (max-width: $tablet-width) {
+    min-height: 185px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: auto;
+    padding-right: 17px;
+  }
+
+  h3 {
+    @media (max-width: $mobile-width) {
+      margin-bottom: 16px;
+    }
+  }
 }
