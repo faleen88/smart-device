@@ -1,0 +1,135 @@
+.about-company__container {
+  width: 1170px;
+  padding: 55px 15px 96px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+
+  @media (max-width: $desktop-width-two) {
+    width: 96%;
+  }
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    padding: 27px 0 75px;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: 1fr;
+    padding: 27px 0 65px;
+  }
+}
+
+.about-company__image {
+  margin-left: -29px;
+
+  @media (max-width: $tablet-width) {
+    margin-left: -10px;
+  }
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
+.about-company__image img {
+  @media (max-width: $desktop-width-two) {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.about-company__description {
+  margin-left: -39px;
+
+  @media (max-width: $tablet-width) {
+    margin-left: -11px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-left: 0;
+    padding: 0 15px;
+  }
+}
+
+.about-company__description h2 {
+  margin: 0;
+  margin-top: -5px;
+  font-family: $fontFamily;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 51px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 3px;
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 28px;
+    line-height: 39px;
+  }
+}
+
+.about-company__text p {
+  padding-right: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 22px;
+
+  @media (max-width: $tablet-width) {
+    padding-left: 3px;
+    padding-right: 25px;
+    overflow: hidden;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 38px;
+  }
+}
+
+.about-company__text span::after {
+  content: attr(data-text1);
+
+  @media (max-width: $tablet-width) {
+    content: attr(data-text2);
+  }
+}
+
+.about-company__link {
+  width: 178px;
+  min-height: 43px;
+  margin-top: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $accent;
+  border-radius: 5px;
+  color: $accent;
+
+  @media (max-width: $tablet-width) {
+    margin-left: 3px;
+    margin-bottom: 9px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: -8px;
+    margin-left: 2px;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: $accent;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}

@@ -102,6 +102,9 @@
 }
 
 .promo__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 98px;
   width: 407px;
   min-height: 55px;
@@ -111,7 +114,7 @@
   background-color: $accent;
 
   &::before {
-    content: 'Получить бесплатную консультацию';
+    content: attr(data-text1);
     font-size: 16px;
     line-height: 19px;
     font-family: $fontFamily;
@@ -120,7 +123,7 @@
     letter-spacing: 0.05em;
 
     @media (max-width: $mobile-width) {
-      content: 'Бесплатная консультация';
+      content: attr(data-text2);
     }
   }
 
