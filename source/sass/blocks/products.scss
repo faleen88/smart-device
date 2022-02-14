@@ -1,0 +1,169 @@
+.products {
+  background-color: $dark;
+}
+
+.products__container {
+  width: 1170px;
+  padding: 89px 15px 127px;
+  margin: 0 auto;
+
+  @media (max-width: $desktop-width-two) {
+    width: 96%;
+  }
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    padding: 50px 0 80px;
+  }
+}
+
+.products__container h2 {
+  margin: 0;
+  margin-bottom: 51px;
+  font-family: $fontFamily;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 51px;
+  color: $white;
+
+  @media (max-width: $tablet-width) {
+    padding: 0 130px 0 25px;
+    margin-bottom: 48px;
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 42px;
+    padding: 0 15px 0 25px;
+    font-size: 28px;
+    line-height: 39px;
+  }
+}
+
+.products__container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+
+  @media (max-width: $tablet-width) {
+    padding: 0 24px;
+    grid-template-columns: 1fr;
+    grid-row-gap: 46px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 0 15px;
+    grid-row-gap: 30px;
+  }
+}
+
+.products__link {
+  width: 370px;
+  min-height: 620px;
+  display: block;
+  position: relative;
+
+  @media (max-width: $desktop-width-two) {
+    width: 100%;
+  }
+
+  @media (max-width: $tablet-width) {
+    min-height: 256px;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: 0;
+    width: 63px;
+    height: 63px;
+    background-color: $accent;
+    z-index: 2;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 27px;
+    right: 27px;
+    width: 5px;
+    height: 9px;
+    background-image: url("../img/arrow.svg");
+    z-index: 2;
+  }
+}
+
+.products__link h3 {
+  width: 170px;
+  margin: 0;
+  padding-top: 50px;
+  padding-left: 44px;
+  font-family: $fontFamily;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: $white;
+  z-index: 2;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 42px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 20px;
+    padding-left: 35px;
+  }
+}
+
+.products__link--lighting h3 {
+  @media (max-width: $tablet-width) {
+    padding-top: 51px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 30px;
+  }
+}
+
+.products__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 370px;
+  height: 620px;
+  opacity: 0.2;
+  background: #c4c4c4 no-repeat center / cover;
+
+  @media (max-width: $desktop-width-two) {
+    width: 100%;
+  }
+
+  @media (max-width: $tablet-width) {
+    height: 256px;
+  }
+
+  &--production {
+    background-image: url("../img/circuit_1.png");
+  }
+
+  &--installation {
+    background-image: url("../img/circuit_2.png");
+  }
+
+  &--lighting {
+    background-image: url("../img/lighting.png");
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
