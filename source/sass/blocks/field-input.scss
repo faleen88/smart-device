@@ -1,0 +1,33 @@
+.field-input input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "PT Mono", "Times New Roman", serif;
+
+  &::placeholder {
+    color: $white;
+    padding-left: 15px;
+
+    @media (max-width: $tablet-width) {
+      padding-left: 17px;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  &:active {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.field-input--modal input {
+  &::placeholder {
+    padding-left: 24px;
+  }
+}

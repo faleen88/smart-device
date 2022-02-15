@@ -36,4 +36,8 @@ if (window.screen.availWidth <= MAX_MOBILE_WIDTH) {
       getAccordeonContent(evt.target.dataset.item);
     });
   });
+} else {
+  buttonsAccordeon.forEach(function (button) {
+    button.tabIndex = -1;
+  });
 }

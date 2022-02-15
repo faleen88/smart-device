@@ -13,7 +13,11 @@
 
   @media (max-width: $tablet-width) {
     width: 100%;
-    padding: 50px 0 80px;
+    padding: 50px 0 79px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-bottom: 63px;
   }
 }
 

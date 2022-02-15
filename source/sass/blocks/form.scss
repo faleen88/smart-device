@@ -1,0 +1,51 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 42px;
+
+  @media (max-width: $tablet-width) {
+    grid-column-gap: 31px;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 32px;
+  }
+}
+
+.form__button {
+  width: 100%;
+  min-height: 45px;
+  background-color: transparent;
+  border: 1px solid $white;
+  border-radius: 5px;
+  color: $white;
+
+  @media (max-width: $mobile-width) {
+    min-height: 46px;
+    margin-top: -8px;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.form--modal {
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.form--modal .form__field {
+  grid-column: 1 / 2;
+}
+
+.form--modal .form__button {
+  min-height: 46px;
+  margin-top: -8px;
+}

@@ -58,8 +58,9 @@
   }
 }
 
-.accordeon__button h3 {
+.accordeon__button span {
   margin: 0;
+  display: block;
   font-family: $fontFamily;
   font-weight: 400;
   font-size: 15px;
@@ -137,7 +138,7 @@
       display: block;
     }
 
-    h3::after {
+    span::after {
       height: 1px;
       background: url("../img/minus.svg");
       top: 36px;

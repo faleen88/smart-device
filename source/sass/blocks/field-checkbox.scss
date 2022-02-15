@@ -1,0 +1,88 @@
+.field-checkbox label {
+  display: block;
+  padding-left: 40px;
+  padding-top: 9px;
+  color: $white;
+  font-size: 14px;
+  line-height: 15px;
+  position: relative;
+
+  @media (max-width: $tablet-width) {
+    padding-left: 43px;
+    padding-top: 10px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 0;
+    padding-left: 33px;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: 9px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border: 1px solid $white;
+
+    @media (max-width: $tablet-width) {
+      left: 10px;
+      top: 9px;
+    }
+
+    @media (max-width: $mobile-width) {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.field-checkbox input:checked + label::after {
+  position: absolute;
+  content: '';
+  left: 13px;
+  top: 13px;
+  width: 9px;
+  height: 6px;
+  background-image: url("../img/checked.svg");
+
+  @media (max-width: $tablet-width) {
+    left: 14px;
+    top: 14px;
+  }
+
+  @media (max-width: $mobile-width) {
+    left: 4px;
+    top: 5px;
+  }
+}
+
+.field-checkbox--modal {
+  margin-top: 3px;
+  padding-top: 0;
+  padding-right: 20px;
+}
+
+.field-checkbox--modal label {
+  padding-top: 0;
+  padding-left: 50px;
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+}
+
+.field-checkbox--modal input:checked + label::after {
+  left: 4px;
+  top: 5px;
+}

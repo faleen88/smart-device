@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="page" lang="en">
+<html class="page" lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,6 +152,37 @@
       </div>
     </section>
 
+    <section class="connection">
+      <div class="connection__container">
+        <div class="connection__image">
+          <img src="img/airplane.svg">
+        </div>
+        <div class="connection__form">
+          <h2>Остались вопросы? Задайте их нам!</h2>
+          <p>Мы проконсультируем Вас бесплатно</p>
+          <form class="form" method="GET" action="https://echo.htmlacademy.ru">
+            <div class="form__field field-input">
+              <label class="visually-hidden" for="name">Ваше имя</label>
+              <input type="text" name="name" id="name" placeholder="Имя" required>
+            </div>
+            <div class="form__field field-input">
+              <label class="visually-hidden" for="phone">Ваш телефон</label>
+              <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
+            </div>
+            <div class="form__field field-text">
+              <label class="visually-hidden" for="comment">Ваш вопрос</label>
+              <textarea id="comment" name="comment" placeholder="Ваш вопрос"></textarea>
+            </div>
+            <button class="form__button button" type="submit" aria-label="Отправить данные"><span>Задать вопрос</span></button>
+            <div class="form__field field-checkbox field-checkbox--connection">
+              <input class="visually-hidden" type="checkbox" id="agreement" name="agreement" required>
+              <label for="agreement">Я согласен на обработку персональных данных</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="main-footer">
@@ -195,7 +226,7 @@
 
       <div class="main-footer__accordeon accordeon accordeon--nojs">
         <section class="accordeon__item accordeon__item--site-sections" id="site-sections">
-          <button class="accordeon__button"><h3 data-item="site-sections">Разделы сайта</h3></button>
+          <button class="accordeon__button" type="button"><span data-item="site-sections">Разделы сайта</span></button>
           <div class="accordeon__content">
             <ul>
               <li>О компании</li>
@@ -212,7 +243,7 @@
         </section>
 
         <section class="accordeon__item accordeon__item--connection" id="connection">
-          <button class="accordeon__button"><h3 data-item="connection">Наш офис</h3></button>
+          <button class="accordeon__button" type="button"><span data-item="connection">Наш офис</span></button>
           <div class="accordeon__content">
             <ul>
               <li>г. Мытищи, Олимпийский проспект, д.10</li>
@@ -234,6 +265,34 @@
       </div>
     </div>
   </footer>
+
+  <section class="modal">
+    <div class="modal__container">
+      <div class="modal__form">
+        <h2>Закажите звонок</h2>
+        <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+        <form class="form form--modal" method="GET" action="https://echo.htmlacademy.ru">
+          <div class="form__field field-input field-input--modal">
+            <label class="visually-hidden" for="name">Ваше имя</label>
+            <input type="text" name="name" id="name" placeholder="Имя" required>
+          </div>
+          <div class="form__field field-input field-input--modal">
+            <label class="visually-hidden" for="phone">Ваш телефон</label>
+            <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
+          </div>
+          <div class="form__field field-text field-text--modal">
+            <label class="visually-hidden" for="comment">Ваш вопрос</label>
+            <textarea id="comment" name="comment" placeholder="Ваш вопрос"></textarea>
+          </div>
+          <button class="form__button button" type="submit" aria-label="Отправить данные"><span>Отправить</span></button>
+          <div class="form__field field-checkbox field-checkbox--modal">
+            <input class="visually-hidden" type="checkbox" id="agreement-modal" name="agreement" required>
+            <label for="agreement-modal">Я согласен на обработку персональных данных</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <script src="js/main.js"></script>
 

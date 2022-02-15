@@ -1,0 +1,50 @@
+.field-text {
+  grid-column: 1 / 3;
+
+  @media (max-width: $mobile-width) {
+    grid-column: 1 / 2;
+  }
+}
+
+.field-text textarea {
+  width: 100%;
+  height: 150px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  resize: none;
+  font-family: "PT Mono", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 22px;
+
+  @media (max-width: $tablet-width) {
+    height: 158px;
+  }
+
+  @media (max-width: $mobile-width) {
+    height: 104px;
+  }
+
+  &::placeholder {
+    color: $white;
+    padding-left: 15px;
+    padding-top: 10px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  &:active {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.field-text--modal textarea {
+  height: 104px;
+  margin: 0;
+
+  &::placeholder {
+    padding-left: 24px;
+  }
+}
