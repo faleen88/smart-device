@@ -80,6 +80,12 @@
   color: $white;
 }
 
+.modal__form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
 .modal--show {
   display: block;
 }
