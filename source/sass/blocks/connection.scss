@@ -1,5 +1,21 @@
 .connection {
   background-color: $accent;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 764px;
+    background: url("../img/form_bg.png") no-repeat;
+    background-position: -25px -59px ;
+    z-index: -1;
+
+    @media (max-width: $tablet-width) {
+      background: none
+    }
+  }
 }
 
 .connection__container {
@@ -30,6 +46,7 @@
 .connection__image {
   padding-top: 70px;
   margin-left: -24px;
+  position: relative;
 
   @media (max-width: $desktop-width-two) {
     margin-left: -10%;
@@ -38,6 +55,10 @@
   @media (max-width: $tablet-width) {
     display: none;
   }
+}
+
+.connection__image img {
+  position: absolute;
 }
 
 .connection__form {

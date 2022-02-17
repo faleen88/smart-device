@@ -1,3 +1,7 @@
+.field-checkbox:focus-within label::before {
+  border: 2px solid $dark;
+}
+
 .field-checkbox label {
   display: block;
   padding-left: 40px;
@@ -6,6 +10,7 @@
   font-size: 14px;
   line-height: 15px;
   position: relative;
+  cursor: pointer;
 
   @media (max-width: $tablet-width) {
     padding-left: 43px;

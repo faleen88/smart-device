@@ -1,15 +1,172 @@
 'use strict';
 
+var MIN_NAME_LENGTH = 1;
+var ALERT_SHOW_TIME = 4000;
 var MAX_MOBILE_WIDTH = 767;
+
+var anchor = document.querySelector('.promo__button');
+
+var openPopupButton = document.querySelector('.main-header__button');
+var modalPopup = document.querySelector('.modal');
+var closePopupButton = modalPopup.querySelector('.modal__button');
+var siteBody = document.querySelector('.page__body');
+var modalOverlay = document.querySelector('.modal__overlay');
+
+var siteAccordeon = document.querySelector('.accordeon');
+var buttonsAccordeon = siteAccordeon.querySelectorAll('.accordeon__button');
+var listAccordeon = siteAccordeon.querySelectorAll('.accordeon__item');
+
+var formConnection = document.querySelector('.form--connection');
+var formModal = document.querySelector('.form--modal');
+
+var nameFields = document.querySelectorAll('#name, #name-modal');
+var phoneFields = document.querySelectorAll('#phone, #phone-modal');
+var textFields = document.querySelectorAll('#comment, #comment-modal');
+
+var nameInputConnection = formConnection.querySelector('#name');
+var phoneInputConnection = formConnection.querySelector('#phone');
+var commentConnection = formConnection.querySelector('#comment');
+var nameInputModal = formModal.querySelector('#name-modal');
+var phoneInputModal = formModal.querySelector('#phone-modal');
+var commentModal = formModal.querySelector('#comment-modal');
+
+// Якорные ссылки
+
+anchor.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  var id = anchor.getAttribute('href');
+
+  document.querySelector(id).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
+
+// local storage
+
+var isStorageSupport = true;
+var storageName = '';
+var storagePhone = '';
+var storageComment = '';
+
+try {
+  storageName = localStorage.getItem('name');
+  storagePhone = localStorage.getItem('phone');
+  storageComment = localStorage.getItem('comment');
+} catch (err) {
+  isStorageSupport = false;
+}
+
+if (storageName) {
+  nameFields.forEach(function (field) {
+    field.value = storageName;
+  });
+}
+
+if (storagePhone) {
+  phoneFields.forEach(function (field) {
+    field.value = storagePhone;
+  });
+}
+
+if (storagePhone) {
+  textFields.forEach(function (field) {
+    field.value = storageComment;
+  });
+}
+
+// Отправка формы
+
+var modalSuccess = document.querySelector('.modal-success');
+
+var showAlert = function () {
+  modalSuccess.classList.remove('visually-hidden');
+
+  setTimeout(function () {
+    modalSuccess.classList.add('visually-hidden');
+  }, ALERT_SHOW_TIME);
+};
+
+var formSubmitHandler = function (evt, name, phone, text) {
+  evt.preventDefault();
+
+  if (!phone.value && !name.value) {
+    evt.preventDefault();
+  } else {
+    if (isStorageSupport) {
+      localStorage.setItem('phone', phone.value);
+      localStorage.setItem('name', name.value);
+      localStorage.setItem('comment', text.value);
+    }
+
+    showAlert();
+    if (modalPopup.classList.contains('modal--show')) {
+      modalPopup.classList.remove('modal--show');
+    }
+  }
+};
+
+formConnection.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+
+  formSubmitHandler(evt, nameInputConnection, phoneInputConnection, commentConnection);
+});
+
+formModal.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+
+  formSubmitHandler(evt, nameInputModal, phoneInputModal, commentModal);
+});
+
+// Попап
+
+var closeModal = function () {
+  modalOverlay.classList.remove('modal__overlay--show');
+  modalPopup.classList.remove('modal--show');
+  closePopupButton.removeEventListener('click', closePopupHandler);
+  modalOverlay.removeEventListener('click', closePopupOverlay);
+  document.removeEventListener('keydown', closeEscKeydownHandler);
+  siteBody.classList.remove('overflow-hidden');
+};
+
+var closePopupHandler = function (evt) {
+  evt.preventDefault();
+  if (evt.target === closePopupButton) {
+    closeModal();
+  } else {
+    return;
+  }
+};
+
+var closePopupOverlay = function (evt) {
+  evt.preventDefault();
+  closeModal();
+};
+
+var closeEscKeydownHandler = function (evt) {
+  if (evt.key === 'Escape' || evt.key === 'Esc') {
+    evt.preventDefault();
+    closeModal();
+  }
+};
+
+var openPopupHandler = function (evt) {
+  evt.preventDefault();
+  modalOverlay.classList.add('modal__overlay--show');
+  modalPopup.classList.add('modal--show');
+  modalPopup.querySelector('#name-modal').focus();
+
+  closePopupButton.addEventListener('click', closePopupHandler);
+  modalOverlay.addEventListener('click', closePopupOverlay);
+  document.addEventListener('keydown', closeEscKeydownHandler);
+  siteBody.classList.add('overflow-hidden');
+};
+
+openPopupButton.addEventListener('click', openPopupHandler);
 
 // Аккордеон
 
-var siteAccordeon = document.querySelector('.accordeon');
-
 siteAccordeon.classList.remove('accordeon--nojs');
-
-var buttonsAccordeon = siteAccordeon.querySelectorAll('.accordeon__button');
-var listAccordeon = siteAccordeon.querySelectorAll('.accordeon__item');
 
 var getAccordeonContent = function (currentValue) {
 
@@ -28,16 +185,49 @@ var getAccordeonContent = function (currentValue) {
   });
 };
 
-if (window.screen.availWidth <= MAX_MOBILE_WIDTH) {
-  buttonsAccordeon.forEach(function (button) {
-    button.addEventListener('click', function (evt) {
-      evt.preventDefault();
+buttonsAccordeon.forEach(function (button) {
+  button.addEventListener('click', function (evt) {
+    getAccordeonContent(evt.target.dataset.item);
+  });
 
+  button.addEventListener('keydown', function (evt) {
+    if (evt.key === 'Enter') {
+      evt.preventDefault();
       getAccordeonContent(evt.target.dataset.item);
+    }
+  });
+});
+
+window.addEventListener('resize', function (evt) {
+  evt.preventDefault();
+  if (window.screen.availWidth <= MAX_MOBILE_WIDTH) {
+    buttonsAccordeon.forEach(function (button) {
+      button.tabIndex = 0;
     });
+  } else {
+    buttonsAccordeon.forEach(function (button) {
+      button.tabIndex = -1;
+    });
+  }
+});
+
+// Валидация формы
+
+nameFields.forEach(function (field) {
+  field.addEventListener('input', function () {
+    var valueName = field.value;
+
+    if (valueName < MIN_NAME_LENGTH) {
+      field.setCustomValidity('Введите ваше имя.');
+    } else {
+      field.setCustomValidity('');
+    }
+
+    field.reportValidity();
   });
-} else {
-  buttonsAccordeon.forEach(function (button) {
-    button.tabIndex = -1;
-  });
-}
+});
+
+// eslint-disable-next-line no-undef
+var im = new Inputmask('+7 (999) 999-99-99');
+im.mask(phoneFields);
+

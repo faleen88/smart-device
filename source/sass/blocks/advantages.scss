@@ -1,3 +1,25 @@
+.advantages {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1343px;
+    background: url("../img/advantages_bg.png") no-repeat;
+    z-index: -1;
+    background-position: center -28px;
+
+    @media (max-width: $tablet-width) {
+      background-position: -350px -87px;
+    }
+
+    @media (max-width: $mobile-width) {
+      background-position: -680px 476px;
+    }
+  }
+}
+
 .advantages__container {
   width: 1170px;
   padding: 112px 15px 55px;
@@ -38,6 +60,7 @@
   padding: 40px 42px 40px;
   border: 1px solid #ebebeb;
   border-left: 3px solid $accent;
+  background-color: $white;
 
   @media (max-width: $tablet-width) {
     padding: 24px 19px 21px 25px;

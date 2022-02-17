@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Smart Device</title>
-  <!--<meta name="description" content="">-->
+  <meta name="description" content="Smart Device - производство и монтаж печатных плат, поставка комплектующих, блоков и модулей по приемлемым ценам">
   <link rel="stylesheet" href="css/style.min.css">
-  <!--<link rel="preload" href="" as="font">-->
+  <link rel="preload" href="fonts/ptmono-regular.woff2" as="font">
 </head>
 <body class="page__body">
   <h1 class="visually-hidden">Smart Device</h1>
@@ -17,7 +17,7 @@
 
       <div class="main-header__logo logo">
         <a class="logo__link">
-          <img src="img/logo.svg" alt="Логотип магазина">
+          <img src="img/logo.svg" width="52" height="52" alt="Логотип магазина">
           <div class="logo__text">
             <b>Smart Device</b>
             <span>умные технологии</span>
@@ -46,7 +46,7 @@
         </ul>
       </nav>
 
-      <button class="main-header__button button">
+      <button class="main-header__button button" type="button">
         <span>Заказать звонок</span>
       </button>
 
@@ -57,7 +57,7 @@
         <div class="promo__description">
           <h2>Печатные платы</h2>
           <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
-          <a class="promo__button button" data-text1="Получить бесплатную консультацию" data-text2="Бесплатная консультация"></a>
+          <a class="promo__button button" href="#connection" data-text1="Получить бесплатную консультацию" data-text2="Бесплатная консультация"></a>
         </div>
         <div class="promo__image">
           <picture>
@@ -112,7 +112,9 @@
       <div class="about-company__container">
         <div class="about-company__image">
           <picture>
-            <img src="img/mask.png">
+            <source type="image/webp" srcset="img/mask.webp 1x, img/mask@2x.webp 2x">
+            <!-- 1х: 220px x 317px; 2x: 440px x 634px -->
+            <img src="img/mask.png" srcset="img/mask@2x.png 2x" alt="Число 2005">
           </picture>
         </div>
         <div class="about-company__description">
@@ -121,7 +123,7 @@
             <p>Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997 года. Выполняем срочные заказы и пилотные образцы до 10 дней.</p>
             <p>Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND. Печатные платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог<span data-text1=" (РЖД), РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители светотехники России." data-text2=".."></span></p>
           </div>
-          <a class="about-company__link button" href="#"><span>Подробнее</span></a>
+          <a class="about-company__link button" href="#" aria-label="Узнать больше о компании"><span>Подробнее</span></a>
         </div>
       </div>
     </section>
@@ -133,34 +135,34 @@
           <li>
             <a class="products__link products__link--production" href="#">
               <h3>Производство печатных плат</h3>
-              <div class="products__image products__image--production"></div>
             </a>
+            <div class="products__image products__image--production"></div>
           </li>
           <li>
             <a class="products__link products__link--installation" href="#">
               <h3>Монтаж печатных плат</h3>
-              <div class="products__image products__image--installation"></div>
             </a>
+            <div class="products__image products__image--installation"></div>
           </li>
           <li>
             <a class="products__link products__link--lighting" href="#">
               <h3>Комплектующие для светотехники</h3>
-              <div class="products__image products__image--lighting"></div>
             </a>
+            <div class="products__image products__image--lighting"></div>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="connection">
+    <section class="connection" id="connection">
       <div class="connection__container">
         <div class="connection__image">
-          <img src="img/airplane.svg">
+          <img src="img/airplane.svg" width="511" height="288" alt="Бумажный самолетик">
         </div>
         <div class="connection__form">
           <h2>Остались вопросы? Задайте их нам!</h2>
           <p>Мы проконсультируем Вас бесплатно</p>
-          <form class="form" method="GET" action="https://echo.htmlacademy.ru">
+          <form class="form form--connection" method="GET" action="https://echo.htmlacademy.ru">
             <div class="form__field field-input">
               <label class="visually-hidden" for="name">Ваше имя</label>
               <input type="text" name="name" id="name" placeholder="Имя" required="">
@@ -226,7 +228,8 @@
 
       <div class="main-footer__accordeon accordeon accordeon--nojs">
         <section class="accordeon__item accordeon__item--site-sections" id="site-sections">
-          <button class="accordeon__button" type="button"><span data-item="site-sections">Разделы сайта</span></button>
+          <h3 class="visually-hidden">Разделы сайта</h3>
+          <button class="accordeon__button" data-item="site-sections" type="button"><span data-item="site-sections">Разделы сайта</span></button>
           <div class="accordeon__content">
             <ul>
               <li>О компании</li>
@@ -242,8 +245,9 @@
           </div>
         </section>
 
-        <section class="accordeon__item accordeon__item--connection" id="connection">
-          <button class="accordeon__button" type="button"><span data-item="connection">Наш офис</span></button>
+        <section class="accordeon__item accordeon__item--contacts" id="contacts">
+          <h3 class="visually-hidden">Наш офис</h3>
+          <button class="accordeon__button" data-item="contacts" type="button"><span data-item="contacts">Наш офис</span></button>
           <div class="accordeon__content">
             <ul>
               <li>г. Мытищи, Олимпийский проспект, д.10</li>
@@ -269,22 +273,23 @@
   <section class="modal">
     <div class="modal__container">
       <div class="modal__form">
+        <button class="modal__button" type="button"></button>
         <h2>Закажите звонок</h2>
         <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
         <form class="form form--modal" method="GET" action="https://echo.htmlacademy.ru">
           <div class="form__field field-input field-input--modal">
-            <label class="visually-hidden" for="name">Ваше имя</label>
-            <input type="text" name="name" id="name" placeholder="Имя" required="">
+            <label class="visually-hidden" for="name-modal">Ваше имя</label>
+            <input type="text" name="name" id="name-modal" placeholder="Имя" required="">
           </div>
           <div class="form__field field-input field-input--modal">
-            <label class="visually-hidden" for="phone">Ваш телефон</label>
-            <input type="tel" name="phone" id="phone" placeholder="Телефон" required="">
+            <label class="visually-hidden" for="phone-modal">Ваш телефон</label>
+            <input type="tel" name="phone" id="phone-modal" placeholder="Телефон" required="">
           </div>
           <div class="form__field field-text field-text--modal">
-            <label class="visually-hidden" for="comment">Ваш вопрос</label>
-            <textarea id="comment" name="comment" placeholder="Ваш вопрос"></textarea>
+            <label class="visually-hidden" for="comment-modal">Ваш вопрос</label>
+            <textarea id="comment-modal" name="comment" placeholder="Ваш вопрос"></textarea>
           </div>
-          <button class="form__button button" type="submit" aria-label="Отправить данные"><span>Отправить</span></button>
+          <button class="form__button form__button--modal button" type="submit" aria-label="Отправить данные"><span>Отправить</span></button>
           <div class="form__field field-checkbox field-checkbox--modal">
             <input class="visually-hidden" type="checkbox" id="agreement-modal" name="agreement" required="">
             <label for="agreement-modal">Я согласен на обработку персональных данных</label>
@@ -292,8 +297,13 @@
         </form>
       </div>
     </div>
+    <div class="modal__overlay"></div>
   </section>
 
+  <div class="modal-success visually-hidden">Отправка формы выполнена</div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.inputmask.js"></script>
   <script src="js/main.js"></script>
 
 </body>

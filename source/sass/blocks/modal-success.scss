@@ -1,0 +1,24 @@
+.modal-success {
+  z-index: 1000;
+  position: fixed;
+  left: 100px;
+  top: 200px;
+  right: 100px;
+  padding: 10px 3px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  border: 5px solid $accent;
+  background-color: $white;
+
+  @media (max-width: $tablet-width) {
+    top: 300px
+  }
+
+  @media (max-width: $mobile-width) {
+    top: 350px;
+    left: 10%;
+    right: 10%;
+    font-size: 24px;
+  }
+}

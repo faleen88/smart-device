@@ -65,11 +65,11 @@
   }
 }
 
-.products__link {
+.products__container li {
   width: 370px;
   min-height: 620px;
-  display: block;
-  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 
   @media (max-width: $desktop-width-two) {
     width: 100%;
@@ -78,6 +78,14 @@
   @media (max-width: $tablet-width) {
     min-height: 256px;
   }
+}
+
+.products__link {
+  display: block;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  z-index: 2;
+  position: relative;
 
   &::before {
     position: absolute;
@@ -87,7 +95,6 @@
     width: 63px;
     height: 63px;
     background-color: $accent;
-    z-index: 2;
   }
 
   &::after {
@@ -98,7 +105,14 @@
     width: 5px;
     height: 9px;
     background-image: url("../img/arrow.svg");
-    z-index: 2;
+  }
+
+  &:hover h3 {
+    color: $accent;
+  }
+
+  &:active {
+    opacity: 0.5;
   }
 }
 
@@ -107,12 +121,12 @@
   margin: 0;
   padding-top: 50px;
   padding-left: 44px;
+  padding-bottom: 30px;
   font-family: $fontFamily;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
   color: $white;
-  z-index: 2;
 
   @media (max-width: $tablet-width) {
     padding-top: 42px;
@@ -135,32 +149,33 @@
 }
 
 .products__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 370px;
-  height: 620px;
   opacity: 0.2;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
   background: #c4c4c4 no-repeat center / cover;
-
-  @media (max-width: $desktop-width-two) {
-    width: 100%;
-  }
-
-  @media (max-width: $tablet-width) {
-    height: 256px;
-  }
 
   &--production {
     background-image: url("../img/circuit_1.png");
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/circuit_1@2x.png");
+    }
   }
 
   &--installation {
     background-image: url("../img/circuit_2.png");
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/circuit_2@2x.png");
+    }
   }
 
   &--lighting {
     background-image: url("../img/lighting.png");
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/lighting@2x.png");
+    }
   }
 
   &:hover {
