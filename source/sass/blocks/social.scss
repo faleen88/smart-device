@@ -84,6 +84,7 @@
   flex-wrap: wrap;
 
   @media (max-width: $tablet-width) {
+    width: 112px;
     padding-top: 11px;
   }
 
@@ -92,13 +93,13 @@
   }
 }
 
-.social__link svg {
+.social li {
   margin-right: 15px;
-}
 
-.social__link--vk svg {
   @media (max-width: $tablet-width) {
-    margin-right: 0;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
   }
 }
 

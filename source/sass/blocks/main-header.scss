@@ -1,36 +1,13 @@
 .main-header {
   background: $dark url("../img/decor.svg") no-repeat center / cover;
-  position: relative;
-  z-index: 0;
-
-  &::before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 950px;
-    background: url("../img/mask-group.svg") no-repeat;
-    background-position: center -1px;
-    z-index: -1;
-
-    @media (max-width: $tablet-width) {
-      height: 692px;
-      background-size: cover;
-      background-position: center -132px;
-    }
-
-    @media (max-width: $mobile-width) {
-      background-position: -623px -135px;
-      height: 662px;
-    }
-  }
 }
 
 .main-header__container {
   width: 1412px;
   padding: 33px 15px 33px 13px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 202px 1fr 180px;
 
   @media (max-width: $min-desktop-width) {
     width: 96%;
@@ -40,6 +17,11 @@
   @media (max-width: $tablet-width) {
     width: 100%;
     padding: 0;
+    grid-template-columns: 202px 1fr;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: 38px 1fr;
   }
 }
 
@@ -69,7 +51,6 @@
 }
 
 .main-header__button {
-  width: 180px;
   min-height: 45px;
   margin-top: 4px;
   margin-bottom: auto;

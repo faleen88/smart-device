@@ -5,11 +5,12 @@
 
   &::before {
     position: absolute;
+    left: 89px;
     content: '';
     width: 100%;
     height: 764px;
     background: url("../img/form_bg.png") no-repeat;
-    background-position: -25px -59px ;
+    background-position: center -61px ;
     z-index: -1;
 
     @media (max-width: $tablet-width) {

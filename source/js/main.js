@@ -3,6 +3,8 @@
 var MIN_NAME_LENGTH = 1;
 var ALERT_SHOW_TIME = 4000;
 var MAX_MOBILE_WIDTH = 767;
+var FOCUS_TABINDEX = 0;
+var DEFOCUS_TABINDEX = -1;
 
 var anchor = document.querySelector('.promo__button');
 
@@ -29,6 +31,22 @@ var commentConnection = formConnection.querySelector('#comment');
 var nameInputModal = formModal.querySelector('#name-modal');
 var phoneInputModal = formModal.querySelector('#phone-modal');
 var commentModal = formModal.querySelector('#comment-modal');
+
+var focusElements = [
+  'a[href]',
+  'area[href]',
+  'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+  'select:not([disabled]):not([aria-hidden])',
+  'textarea:not([disabled]):not([aria-hidden])',
+  'button:not([disabled]):not([aria-hidden])',
+  'iframe',
+  'object',
+  'embed',
+  '[contenteditable]',
+  '[tabindex]:not([tabindex^="-"])'
+];
+var documentFocusElements = siteBody.querySelectorAll(focusElements);
+var modalFocusElements = modalPopup.querySelectorAll(focusElements);
 
 // Якорные ссылки
 
@@ -118,7 +136,13 @@ formModal.addEventListener('submit', function (evt) {
   formSubmitHandler(evt, nameInputModal, phoneInputModal, commentModal);
 });
 
-// Попап
+// Попап\
+
+var appropriateTabIndex = function (elements, tabIndex) {
+  elements.forEach(function (element) {
+    element.tabIndex = tabIndex;
+  });
+};
 
 var closeModal = function () {
   modalOverlay.classList.remove('modal__overlay--show');
@@ -127,6 +151,9 @@ var closeModal = function () {
   modalOverlay.removeEventListener('click', closePopupOverlay);
   document.removeEventListener('keydown', closeEscKeydownHandler);
   siteBody.classList.remove('overflow-hidden');
+  appropriateTabIndex(modalFocusElements, DEFOCUS_TABINDEX);
+  appropriateTabIndex(documentFocusElements, FOCUS_TABINDEX);
+  appropriateTabIndex(buttonsAccordeon, DEFOCUS_TABINDEX);
 };
 
 var closePopupHandler = function (evt) {
@@ -154,6 +181,8 @@ var openPopupHandler = function (evt) {
   evt.preventDefault();
   modalOverlay.classList.add('modal__overlay--show');
   modalPopup.classList.add('modal--show');
+  appropriateTabIndex(documentFocusElements, DEFOCUS_TABINDEX);
+  appropriateTabIndex(modalFocusElements, FOCUS_TABINDEX);
   modalPopup.querySelector('#name-modal').focus();
 
   closePopupButton.addEventListener('click', closePopupHandler);
@@ -201,13 +230,9 @@ buttonsAccordeon.forEach(function (button) {
 window.addEventListener('resize', function (evt) {
   evt.preventDefault();
   if (window.screen.availWidth <= MAX_MOBILE_WIDTH) {
-    buttonsAccordeon.forEach(function (button) {
-      button.tabIndex = 0;
-    });
+    appropriateTabIndex(buttonsAccordeon, FOCUS_TABINDEX);
   } else {
-    buttonsAccordeon.forEach(function (button) {
-      button.tabIndex = -1;
-    });
+    appropriateTabIndex(buttonsAccordeon, DEFOCUS_TABINDEX);
   }
 });
 
